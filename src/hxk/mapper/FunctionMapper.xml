@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--指向具体的dao  -->
+<mapper namespace="hxk.dao.FunctionDao">
+
+	<!--  开启二级缓存-->
+	<cache />
+
+	
+	<!-- 查找 -->
+	<select id="getAuthority" parameterType="string" resultType="string">
+			select f.id from user u ,role r ,function f where u.roleid = r.id and f.roleid = r.id and u.name = #{name};
+	</select>
+	
+	<!-- 查找 -->
+	<select id="getAll"  resultType="function">
+		select * from function;
+	</select>
+	
+</mapper>
